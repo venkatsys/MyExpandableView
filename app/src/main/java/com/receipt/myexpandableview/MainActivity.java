@@ -53,7 +53,35 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
         SectionValues msectionValues = (SectionValues) msectionDatas.get(groupPosition).getSectionValues().get(childPosition);
-        Log.i("childclick","click" + msectionValues.getmTitle() + msectionValues.getmDesc());
+        Log.i("childclick", "click" + msectionValues.getmTitle() + msectionValues.getmDesc());
         return false;
+    }
+
+    private void updateCall(){
+        /*Uri todoUri = null;
+        ContentValues cv = new ContentValues();
+        cv.put(DatabaseHelper.COLUMN_TASKNAME, this.taskName.getText().toString());
+        cv.put(DatabaseHelper.COLUMN_CREATEDBY, getPref.getString("UserGUID", "-1"));
+        if(dataResult.get("taskeditID") != null){
+            todoUri = Uri.parse("content://com.tasks/task/"+dataResult.get("taskeditID")+"/update");
+            getApplicationContext().getContentResolver().update(todoUri, cv, null, null);
+        }
+        private static final int TASKUPDATECODE=103;
+        matcher.addURI(AUTHORITY, "task*//*//*update", TASKUPDATECODE);
+        @Override
+        public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+            int row = 0;
+            int matched = uriMatcher.match(uri);
+            TaskId = null;
+            if( matched == TASKUPDATECODE){
+                TaskId = uri.getPathSegments().get(1);
+                String where = DatabaseHelper.COLUMN_TASKID + " = '" + TaskId + "'";
+                row = getDb().update(DatabaseHelper.DONE_TASKINFO, values, where, null);
+            }
+            if (row > 0) {
+                getContext().getContentResolver().notifyChange(Uri.parse("content://com.tasks/task/get"), null);
+            }
+            return row;
+        }*/
     }
 }
